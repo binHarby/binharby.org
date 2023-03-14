@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bin Harby Site</title>
+    <link>/</link>
+    <description>Recent content on Bin Harby Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Jan 2023 17:39:29 +0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AboutBinary</title>
+      <link>/blogs/aboutbinary/</link>
+      <pubDate>Fri, 13 Jan 2023 17:39:29 +0400</pubDate>
+      
+      <guid>/blogs/aboutbinary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tonight</title>
+      <link>/posts/tonight/</link>
+      <pubDate>Fri, 13 Jan 2023 17:25:41 +0400</pubDate>
+      
+      <guid>/posts/tonight/</guid>
+      <description>int main(args*){ } </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 13 Jan 2023 16:50:44 +0400</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hello its me</description>
+    </item>
+    
+  </channel>
+</rss>
