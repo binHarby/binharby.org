@@ -6,14 +6,16 @@
     <description>Recent content in Blogs on Bin Harby Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Jan 2023 17:39:29 +0400</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 18:31:59 +0400</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AboutBinary</title>
-      <link>/blogs/aboutbinary/</link>
-      <pubDate>Fri, 13 Jan 2023 17:39:29 +0400</pubDate>
+      <title>Starting With C</title>
+      <link>/blogs/starting-with-c/</link>
+      <pubDate>Wed, 15 Mar 2023 18:31:59 +0400</pubDate>
       
-      <guid>/blogs/aboutbinary/</guid>
-      <description></description>
+      <guid>/blogs/starting-with-c/</guid>
+      <description>These are a few of my notes studying C from books such as Effective C as practice an king&amp;rsquo;s book C99 practice questions
+Note that I will be summarizing these notes even more with second draft, and then I&amp;rsquo;d rewrite them in a more friendly manner the third time
+pages: 0-12(13) of Effective C Objectives: Build a simple C program Compile and run the simple C program Compiler options Portiablity Issues Quick Read Takeaways Simple hello world program #include &amp;lt;stdio.</description>
     </item>
     
   </channel>
