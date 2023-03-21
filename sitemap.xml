@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2023-03-15T18:31:59+04:00</lastmod>
+    <lastmod>2023-03-21T23:22:11+04:00</lastmod>
   </url><url>
     <loc>/blogs/</loc>
-    <lastmod>2023-03-15T18:31:59+04:00</lastmod>
+    <lastmod>2023-03-21T23:22:11+04:00</lastmod>
+  </url><url>
+    <loc>/blogs/the-git-cheatsheet/</loc>
+    <lastmod>2023-03-21T23:22:11+04:00</lastmod>
   </url><url>
     <loc>/blogs/starting-with-c/</loc>
     <lastmod>2023-03-15T18:31:59+04:00</lastmod>
