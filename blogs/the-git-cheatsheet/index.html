@@ -59,17 +59,17 @@ The long way Make a folder through GUI or terminal # Making folder through termi
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          3 min read
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h1 id="setting-up-a-git-repo-locally">Setting up a git repo locally</h1>
-<h2 id="the-easy-way">The easy way</h2>
+      <h2 id="setting-up-a-git-repo-locally">Setting up a git repo locally</h2>
+<h3 id="the-easy-way">The easy way</h3>
 <ol>
 <li>install VScode and setup git addon/plug-in</li>
 </ol>
-<h2 id="short-way-">Short way !</h2>
+<h3 id="short-way-">Short way !</h3>
 <ol>
 <li>Make a folder through GUI</li>
 <li>copy link of git repo</li>
@@ -77,7 +77,7 @@ The long way Make a folder through GUI or terminal # Making folder through termi
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@git....git 
 </span></span></code></pre></div><p>Now your git repo is set !</p>
-<h2 id="the-long-way">The long way</h2>
+<h3 id="the-long-way">The long way</h3>
 <ol>
 <li>Make a folder through GUI or terminal</li>
 </ol>
@@ -100,15 +100,15 @@ The long way Make a folder through GUI or terminal # Making folder through termi
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>git remote add origin git@git....git 
 </span></span></code></pre></div><p>Now your git repo is set !</p>
-<h1 id="how-to-add-your-changes-to-the-repo-your-routine">How to add your changes to the repo (your routine!)</h1>
-<h2 id="to-editcreate-a-new-file-to-be-commited--pushed">To edit/create a new file to be commited &amp; pushed</h2>
+<h2 id="how-to-add-your-changes-to-the-repo-your-routine">How to add your changes to the repo (your routine!)</h2>
+<h3 id="to-editcreate-a-new-file-to-be-commited--pushed">To edit/create a new file to be commited &amp; pushed</h3>
 <ol>
 <li>make sure you are in the correct folder (the git folder)</li>
 <li>make sure your local repo is up to date, pull any new changes</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#75715e">#this terminal command does it</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e"># VScode may have other options</span>
-</span></span><span style="display:flex;"><span>	git pull
+</span></span><span style="display:flex;"><span>	git pull origin <span style="color:#f92672">[</span>yourbranchName<span style="color:#f92672">]</span>
 </span></span></code></pre></div><ol start="3">
 <li>create a new branch</li>
 </ol>
@@ -135,6 +135,66 @@ The long way Make a folder through GUI or terminal # Making folder through termi
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#75715e"># :)</span>
 </span></span><span style="display:flex;"><span>	git add . ; git commit -m <span style="color:#e6db74">&#34;chachaChanges&#34;</span> ; git push 
+</span></span></code></pre></div><h2 id="git-helper-bash-scripts">Git helper bash scripts</h2>
+<p>you can add this to your <code>~/.bashrc</code> or <code>~/.bash_profile</code> on Mac or Unix-like operating systems</p>
+<h3 id="track-all--new-remote--repo-branches">Track All  New Remote  Repo Branches</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gitTrackAllRemote<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#tracks all new remote branches</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#git branch -r outputs list of remote branches</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># ${remote#origin/} is a parameter expansion in bash that removes &#39;origin/&#39; from the results on each iteration</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># example of the command on each iteration : git branch --track newbranch origin/newbranch</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># the previous comment shows a command that makes a local branch and makes it track the remote branch origin/newbranch</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> remote in <span style="color:#e6db74">`</span>git branch -r<span style="color:#e6db74">`</span>; <span style="color:#66d9ef">do</span> git branch --track <span style="color:#e6db74">${</span>remote#origin/<span style="color:#e6db74">}</span> $remote; <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="sync-local-git-directory-with-remote-repo-deleted-remote-branchs">Sync local git directory with remote repo: deleted remote branch(s)</h3>
+<blockquote>
+<p>Note: make sure your branches don&rsquo;t have any quotes</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gitSyncRemoteRemovesForce<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#removes local branches the have been removed from remote repo</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#git fetch -p is similar to:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#git fetch --prune</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># git remote prune origin</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># What do these commands  do ?</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># They all remove the local references of remote branches</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># once the local reference of a removed remote branch is gone, git branch --vv can show that</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># it outputs a next to the local branch name &#34;gone&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># we can then then pass that list to a program called xargs </span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># that would iterate over the name and runs the command stated after it </span>
+</span></span><span style="display:flex;"><span>	git fetch -p <span style="color:#f92672">&amp;&amp;</span> git branch -vv | awk <span style="color:#e6db74">&#39;/: gone]/{print $1}&#39;</span> | xargs git branch -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="sync-local-working-branch-with-main-upstream-branch">Sync local working branch with main upstream branch</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gitSyncBranchWithUpstream<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># getting working branch remote updates (incase local branch is behind)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># this command gits me the current branch name</span>
+</span></span><span style="display:flex;"><span>		workingb<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>git rev-parse --abbrev-ref HEAD<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>		git pull origin $workingb
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#rebase current branch with upstream branch</span>
+</span></span><span style="display:flex;"><span>		git rebase origin/master 
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># stage any unstaged changes</span>
+</span></span><span style="display:flex;"><span>		git add . ; git commit -m <span style="color:#e6db74">&#34;Syncing </span>$workingb<span style="color:#e6db74"> with upstream&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#force commit the new changes to remote </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		git push -u origin $currentb --force
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div>
     </div>
     <div class="post-footer">
